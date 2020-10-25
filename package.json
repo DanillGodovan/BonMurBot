@@ -1,0 +1,34 @@
+{
+  "name": "botforbro",
+  "version": "1.0.0",
+  "description": "Bot for Bro Plays",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bonkinan",
+  "license": "ISC",
+  "dependencies": {
+    "@extreme_hero/deeptype": "^1.0.1",
+    "canvas": "^2.6.1",
+    "diff": "^4.0.2",
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "fs": "0.0.1-security",
+    "glob": "^7.1.6",
+    "moment": "^2.27.0",
+    "mongoose": "^5.9.27",
+    "ms": "^2.1.2",
+    "node-fetch": "^2.6.1",
+    "node-pre-gyp": "^0.15.0",
+    "nodemon": "^2.0.4",
+    "os": "^0.1.1",
+    "passport": "^0.4.1",
+    "passport-discord": "^0.1.4",
+    "superagent": "^5.3.1",
+    "url": "^0.11.0",
+    "util": "^0.12.3"
+  }
+}
