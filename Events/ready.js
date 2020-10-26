@@ -1,5 +1,6 @@
 const Event = require('../Structures/Event');
-
+const mongoose = require('mongoose')
+const User = require('../data/user')
 module.exports = class extends Event {
 
 	constructor(...args) {
@@ -8,7 +9,7 @@ module.exports = class extends Event {
 		});
 	}
 
-	run() {
+	async run() {
 		console.log([
 			`Logged in as ${this.client.user.tag}`,
 			`Loaded ${this.client.commands.size} commands!`,
