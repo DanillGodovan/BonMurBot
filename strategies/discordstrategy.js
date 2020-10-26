@@ -1,5 +1,6 @@
 const DiscordStrategy = require('passport-discord').Strategy;
 const passport = require("passport");
+const Discord = require('discord.js')
 const mongoose = require('mongoose')
 const User = require('../data/user')
 require("dotenv").config();
@@ -13,7 +14,6 @@ require("dotenv").config();
     console.log(profile);
     let profileID = profile.id.toString()
     let data = await User.findOne({userID: profileID})
-    console.log(data)
     data.verified = true
     data.save()
     done(null, accessToken)

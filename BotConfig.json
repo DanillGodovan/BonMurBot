@@ -1,9 +1,9 @@
 {
-    "dataURL": " ",
-    "token": " ",
+    "dataURL": "mongodb+srv://Bonkinan:d1tvpjYrARdiAOk7@godovanium.8tvqz.mongodb.net/BonMurBot+DB?retryWrites=true&w=majority",
+    "token": "NzI5Njc1NTQ3MzAyNTU5ODM4.XwMZZw.xA-Ku5absDG4TFy-iK2p9Apr_YQ",
     "prefix": "!",
     "owners": ["331387785821028353"],
     "warn": "5",
-    "points": "100",
+    "points": "1",
     "defaultPerms": ["SEND_MESSAGES", "VIEW_CHANNEL"]
 }

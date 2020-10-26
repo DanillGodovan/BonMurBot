@@ -38,7 +38,7 @@ app.listen(PORT, () => {
 });
 
     mongoose.connect(config.dataURL, { useNewUrlParser: true, useUnifiedTopology: true });
-    mongoose.connection.on('connected',()=>{
+    mongoose.connection.on('connected',() => {
       console.log('[✅DataBase] Connected!')
   })
 

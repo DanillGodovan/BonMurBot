@@ -18,7 +18,7 @@ module.exports = class extends Event {
         }
         let joinembed = new MessageEmbed()
         .setTitle(`Приветствуем на нашем сервере!`)
-        .setDescription(`Пожалуйста пройдите верификацию написав в <#743224460076777572> команду !verify`)
+        .setDescription(`Пожалуйста, прочтите правила и верифицируетесь, и после подтвердите верификацию написав в <#703044539287601156> команду !verify\nPlease read the rules and verify, and then confirm the verification by writing to <#703044539287601156> command !verify!`)
         member.send(joinembed)
     }
 }
