@@ -7,6 +7,7 @@ const schema = mongoose.Schema({
     locations: { type: Number, default: 0 },
     verified: { type: Boolean, default: false },
     warn: { type: Number, default: 0 },
+    lang: { type: String, default: `None` },
     points: { type: Number, default: 0 },
     tradeText: { type: String, default: `[Текст]` },
     _time: { type: Number, default: 0 }
