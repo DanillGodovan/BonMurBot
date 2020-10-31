@@ -4,6 +4,6 @@
     "prefix": "!",
     "owners": ["331387785821028353"],
     "warn": "5",
-    "points": "1",
+    "points": "100",
     "defaultPerms": ["SEND_MESSAGES", "VIEW_CHANNEL"]
 }

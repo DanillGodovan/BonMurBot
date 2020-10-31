@@ -18,6 +18,7 @@
     "express-session": "^1.17.1",
     "fs": "0.0.1-security",
     "glob": "^7.1.6",
+    "google-play-scraper": "^8.0.2",
     "moment": "^2.27.0",
     "mongoose": "^5.9.27",
     "ms": "^2.1.2",
