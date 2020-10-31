@@ -13,7 +13,6 @@ module.exports = class extends Command {
             aliases: ["Очистить", "deletemessage"],
             guildOnly: true,
 			nsfw: false,
-			args: true
     });
 }
 async run(message, args) {
