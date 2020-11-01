@@ -9,7 +9,7 @@ module.exports = class extends Command {
         super(...args, {
             aliases: ["трейд"],
             description: "Скидывает трейд через определенный интервал",
-            category: "Информация",
+            category: "Трейд команды",
             guildOnly: true,
             nsfw: false,
         });

@@ -6,11 +6,10 @@ module.exports = class extends Command {
 		super(...args, {
             description: "Qr code!",
             usage: "!QR <text>",
-            category: "Verification",
+            category: "Веселые",
             aliases: ["qrcode"],
             guildOnly: true,
 			      nsfw: false,
-			      args: true
     });
 }
   async run(message, args) {
