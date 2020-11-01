@@ -8,8 +8,9 @@ module.exports = class extends Command {
         super(...args, {
             description: "Отсылает информацию для админов!",
             usage: "!infa-admin",
-            category: "Информация",
+            category: "Owner",
             aliases: ["Инфа-админ", "info-adm"],
+            ownerOnly: true,
             guildOnly: true,
             nsfw: false,
             args: false,

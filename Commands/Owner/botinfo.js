@@ -11,7 +11,7 @@ module.exports = class extends Command {
 		super(...args, {
 			aliases: ['bot'],
 			description: 'Displays information about the bot.',
-			category: 'Information',
+			category: 'Owner',
 			userPerms: ["ADMINISTRATOR"],
 			botPerms: ["ADMINISTRATOR"],
 			guildOnly: false,
