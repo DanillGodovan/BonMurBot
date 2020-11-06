@@ -10,6 +10,9 @@ const schema = mongoose.Schema({
     lang: { type: String, default: `None` },
     points: { type: Number, default: 0 },
     tradeText: { type: String, default: `[Текст]` },
-    _time: { type: Number, default: 0 }
+    _time: { type: Number, default: 0 },
+    tradeSent: { type: Boolean, default: false },
+    inactive: { type: Boolean, default: false },
+    pension: { type: Boolean, default: false },
 });
 module.exports = mongoose.model("User", schema)

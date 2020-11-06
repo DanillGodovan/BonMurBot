@@ -17,6 +17,16 @@ module.exports = class extends Event {
             if (!guildMember) return;
             data.lang = "US"
             data.save()
+        } else if (reaction.emoji.name === '🇬🇧') {
+            if (user.bot) return;
+            if (!guildMember) return;
+            data.lang = "US"
+            data.save()
+        } else if (reaction.emoji.name === '📰') {
+            guildMember.roles.add('772774156667584545')
+        } else if (reaction.emoji.name === '🎬') {
+
+            guildMember.roles.add('772774116285087765')
         }
     }
 }

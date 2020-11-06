@@ -21,7 +21,7 @@ module.exports = class extends Event {
         .map(result => result.added ? `**${result.value}**` : result.removed ? `~~${result.value}~~` : result.value)
         .join(' '));
 
-        const channel = message.guild.channels.cache.find(ch => ch.name === 'основные-логи')
+        const channel = message.guild.channels.cache.find(ch => ch.name === 'chat-logs')
         if (channel) channel.send(embed)
     }
 }

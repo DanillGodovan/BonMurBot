@@ -39,7 +39,7 @@ module.exports = class BonEmbed extends MessageEmbed {
 
             this.fields.push({ name: title, value: content.trim().slice(0, x), inline: false})
             content = content.slice(x + 1)
-            title = ZWSl;
+            title = ZWS;
         }
         return this;
     }

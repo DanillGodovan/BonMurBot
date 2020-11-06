@@ -14,7 +14,7 @@ module.exports = class extends Command {
 	async run(message) {
 		const embed = new MessageEmbed()
 		.setTitle("**Rules**")
-        .setDescription("**To open chat rooms**, ollow the link below, read the rules, confirm reading, select the flag that defines your language, and write the command in this chat !verify.\n:flag_us: **ENG** https://clck.ru/RdBRK")
+        .setDescription("**To open chat rooms**, follow the link below, read the rules, confirm reading, select the flag that defines your language, and write the command in this chat !verify.\n:flag_us: **ENG** https://clck.ru/RdBRK")
         
         message.channel.send("**Verification 1/2**", { embed: embed }).then(async msg => {
         await msg.react("🇺🇸")
