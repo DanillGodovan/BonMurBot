@@ -23,18 +23,23 @@ module.exports = class extends Command {
             guildID: message.guild.id,
             userID: member.id
         }, (err, data) => {
-			const embed = new MessageEmbed()
-			.setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 512 }))
-            .setColor('2F3136')
-            .addField('User', [
-                    `**❯ Никнейм:** ${member.user.tag}`,
-                    `**❯ ID:** ${member.id}`,
-                    `**❯ Аватар:** [Link to avatar](${member.user.displayAvatarURL({ dynamic: true })})`,
-                    `**❯ Очки:** ${data.points}`,
-                    `**❯ Преды:** ${data.warn}`,
-                    `**❯ Создан:** ${moment(member.user.createdTimestamp).format('LT')} ${moment(member.user.createdTimestamp).format('LL')} ${moment(member.user.createdTimestamp).fromNow()}`,
+            const embed = new MessageEmbed()
+            .setTitle(`**Server: ${message.guild.name}**`)
+            .setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 512 }))
+            .setDescription("User Information / Информация о Юзере")
+            .setColor('34B7EB')
+            .addField('**Информация & Основное**', [
+                    `**Никнейм / Nickname:** ${member.user.tag}`,
+                    `**ID:** ${member.id}`,
+                    `**Аватар / Avatar:** [Link to avatar](${member.user.displayAvatarURL({ dynamic: true })})`,
+                    `**Создан / Created:** ${moment(member.user.createdTimestamp).format('RU')} ${moment(member.user.createdTimestamp).format('LL')} ${moment(member.user.createdTimestamp).fromNow()}`,
                 ])
-            return message.channel.send(embed);
+            .addField('**Информация & Основное**', [
+                    `**Logs Очки / Points: ** ${data.points}`,
+                    `**Logs Предупреждения / Warnings: ** ${data.warn}`,
+                ])
+            .setFooter(`ID: ${message.guild.id} | BonMurBot ©️ 2020-2020 Все Права Съедены.`)
+            return message.channel.send("**User Information / Информация о Юзере**", {embed: embed});
         })
     }
 
