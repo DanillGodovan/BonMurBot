@@ -35,8 +35,8 @@ module.exports = class extends Command {
                     `**Создан / Created:** ${moment(member.user.createdTimestamp).format('RU')} ${moment(member.user.createdTimestamp).format('LL')} ${moment(member.user.createdTimestamp).fromNow()}`,
                 ])
             .addField('**Информация & Основное**', [
-                    `**Logs Очки / Points: ** ${data.points}`,
-                    `**Logs Предупреждения / Warnings: ** ${data.warn}`,
+                    `**Logs Очки / Points: ** ${data.points}** / 100 Гл. Модератор / Сhief Moderator**`,
+                    `**Logs Предупреждения / Warnings: ** ${data.warn}** / 5 Снятие & Понижение / Remove & Decrease**`,
                 ])
             .setFooter(`ID: ${message.guild.id} | BonMurBot ©️ 2020-2020 Все Права Съедены.`)
             return message.channel.send("**User Information / Информация о Юзере**", {embed: embed});
