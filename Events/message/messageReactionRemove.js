@@ -7,6 +7,9 @@ module.exports = class extends Event {
             guildMember.roles.remove('772774156667584545')
         } else if (reaction.emoji.name === '🎬') {
             guildMember.roles.remove('772774116285087765')
+        } else if (reaction.emoji.name === '🎉') {
+            guildMember.roles.remove('774623878420234250')
+
         }
     }
 }

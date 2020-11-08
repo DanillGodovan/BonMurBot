@@ -19,7 +19,7 @@ module.exports = class extends Command {
         .setDescription(`Служебное / Service`)
         .addField("**Русская Версия**", "Для нахождение основной информации для модераторов и админом, перейдите по ссылке выше.\nОбязательное прочтение и запоминание, за не выполнение - снятие / понижение.")
         .addField("**English Version**", "To find basic information for moderators and admins, follow the link above.\nMandatory reading and memorizing, for non - executing - impeachment / decrease.")
-        .addField("**<:YouTube:770834157244776458> YouTube Channel / Ютуб Канал**", "[YouTube](https://www.youtube.com/channel/UCH3I08n1RAz0AcOLZUJ5ujQ)")
+        .addField("**Социальные сети / Social network**", "<:01:774670675947421747> [YouTube](https://www.youtube.com/channel/UCH3I08n1RAz0AcOLZUJ5ujQ)\n<:03:774670676165918730> [VK](https://www.instagram.com/bro_rbx)\n<:02:774670676581548112> [Instagram](https://vk.com/bro_ytb)")
         .setFooter(`ID: ${message.guild.id} | BonMurBot ©️ 2020-2020 Все Права Съедены.`)
         message.channel.send("**Служебное / Service**" ,{embed: embed})
     }

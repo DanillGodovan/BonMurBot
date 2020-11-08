@@ -18,8 +18,8 @@ module.exports = class extends Command {
         .setColor('34B7EB')
         .setDescription(`Жалобы.`)
         .addField("**Русская Версия**", "Для подачи идеи / улучшения в этот чат, напишите \"!suggest <идея / улучшение>\" в Генеральном Чате / Чате Новичков / Команды Ботов.\nПросьба не подавать глупые, бессмысленные, бесполезные и тому подобные идеи.")
-        .addField("**<:YouTube:770834157244776458> Ютуб Канал**", "[YouTube](https://www.youtube.com/channel/UCH3I08n1RAz0AcOLZUJ5ujQ)")
+        .addField("**Социальные сети / Social network**", "<:01:774670675947421747> [YouTube](https://www.youtube.com/channel/UCH3I08n1RAz0AcOLZUJ5ujQ)\n<:03:774670676165918730> [VK](https://www.instagram.com/bro_rbx)\n<:02:774670676581548112> [Instagram](https://vk.com/bro_ytb)")
         .setFooter(`ID: ${message.guild.id} | BonMurBot ©️ 2020-2020 Все Права Съедены.`)
-        message.channel.send("**Жалобы**" ,{embed: embed})
+        message.channel.send("**Основное / Main**" ,{embed: embed})
 }
 }

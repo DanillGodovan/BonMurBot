@@ -17,10 +17,10 @@ module.exports = class extends Command {
         .setTitle(`**Server: ${message.guild.name}**`)
         .setColor('34B7EB')
         .setDescription(`Логи / Logs`)
-        .addField("**Русская Версия**", "[Информация по логам](https://clck.ru/RdQyz)\nДля нахождение информации по логам, перейдите по ссылке выше.\nОбязательное слежение и отзывчивость на эти логи, за не выполнение - снятие / понижение.")
-        .addField("**English Version**", "[Information about logs](https://clck.ru/RdQyz)\nTo find information about logs, follow the link above.\nMandatory tracking and responsiveness to these logs, for non - execution - impeachment / reduction.")
+        .addField("**Русская Версия**", "Здесь публикуются измененные, удаленные и тому подобные сообщения.\nС течением времени возможно будет добавляться что-то еще в эти логи.")
+        .addField("**English Version**", "Modified, deleted, and similar messages are published here.\nOver time, something else may be added to these logs.")
         .addField("**Социальные сети / Social network**", "<:01:774670675947421747> [YouTube](https://www.youtube.com/channel/UCH3I08n1RAz0AcOLZUJ5ujQ)\n<:03:774670676165918730> [VK](https://www.instagram.com/bro_rbx)\n<:02:774670676581548112> [Instagram](https://vk.com/bro_ytb)")
         .setFooter(`ID: ${message.guild.id} | BonMurBot ©️ 2020-2020 Все Права Съедены.`)
-        message.channel.send("**Служебное / Service**" ,{embed: embed})
+        message.channel.send("**Логи / Logs**" ,{embed: embed})
     }
 }

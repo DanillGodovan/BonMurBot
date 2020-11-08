@@ -19,7 +19,7 @@ module.exports = class extends Command {
         .setDescription(`Команды / Commands`)
         .addField("**Русская Версия**", "[Команды](https://app.gitbook.com/@biolog-n/s/bro-igrayut-pererozhdenie/komandy)\nДля нахождение информации по командам всех ботов, перейдите по ссылке выше.\nP.S. Все это будет в скором времени пополняться.")
         .addField("**English Version**", "[Commands](https://app.gitbook.com/@biolog-n/s/bro-igrayut-pererozhdenie/komandy)\nTo find information on the commands of all bots, follow the link above.\nP.S. All this will be updated soon.")
-        .addField("**<:YouTube:770834157244776458> YouTube Channel / Ютуб Канал**", "[YouTube](https://www.youtube.com/channel/UCH3I08n1RAz0AcOLZUJ5ujQ)")
+        .addField("**Социальные сети / Social network**", "<:01:774670675947421747> [YouTube](https://www.youtube.com/channel/UCH3I08n1RAz0AcOLZUJ5ujQ)\n<:03:774670676165918730> [VK](https://www.instagram.com/bro_rbx)\n<:02:774670676581548112> [Instagram](https://vk.com/bro_ytb)")
         .setFooter(`ID: ${message.guild.id} | BonMurBot ©️ 2020-2020 Все Права Съедены.`)
         message.channel.send("**Основное / Main**" ,{embed: embed})
 }

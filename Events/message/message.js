@@ -85,6 +85,13 @@ module.exports = class extends Event {
                 }
             }
 
+            let allprefixes = ["!", "pls", "*", ";;", "/", ".", "?"]
+            if(message.channel.id === '703254582834364458') {
+                if(!message.content.startsWith(allprefixes)) {
+                   await message.delete()
+                }
+            }
+
             command.run(message, args);
         }
     }
