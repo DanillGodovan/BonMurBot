@@ -17,7 +17,7 @@ module.exports = class extends Command {
         .setTitle(`**Server: ${message.guild.name}**`)
         .setColor('34B7EB')
         .setDescription(`Идеи & Улучшения.`)
-        .addField("**Русская Версия**", "Для подачи идеи / улучшения в этот чат, напишите \"!suggest <идея / улучшение>\" в Генеральном Чате / Чате Новичков / Команды Ботов.\nПросьба не подавать глупые, бессмысленные, бесполезные и тому подобные идеи.")
+        .addField("**Идеи & Улучшения**", "Для подачи идеи / улучшения в этот чат, напишите \"!suggest <идея / улучшение>\" в чатах по общению или команд.\nПросьба не подавать глупые, бессмысленные, бесполезные и тому подобные идеи.")
         .addField("**Социальные сети / Social network**", "<:01:774670675947421747> [YouTube](https://www.youtube.com/channel/UCH3I08n1RAz0AcOLZUJ5ujQ)\n<:03:774670676165918730> [VK](https://www.instagram.com/bro_rbx)\n<:02:774670676581548112> [Instagram](https://vk.com/bro_ytb)")
         .setFooter(`ID: ${message.guild.id} | BonMurBot ©️ 2020-2020 Все Права Съедены.`)
         message.channel.send("**Основное / Main**" ,{embed: embed})

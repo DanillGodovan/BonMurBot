@@ -25,11 +25,11 @@ module.exports = class extends Command {
             const returnembed = new MessageEmbed()
             .setTitle(`**Server: ${message.guild.name}**`)
             .setColor('34B7EB')
-            .addField("**Русская Версия**", "[Все для модерации и администрации](https://app.gitbook.com/@biolog-n/s/bro-igrayut-pererozhdenie/vse-dlya-moderacii-i-administracii)\nВы успешно получили роль неактивного модератора. Для более подробной информации о команде, перейдите по ссылке выше.\nПросьба не злоупотреблять этой командой, иначе вы рискуете получить предупреждение.")
-            .addField("**English Version**", "[Everything for moderation and administration](https://app.gitbook.com/@biolog-n/s/bro-igrayut-pererozhdenie/vse-dlya-moderacii-i-administracii)\nYou have successfully obtained the role of inactive moderator. For more information about the team, follow the link above.\nPlease do not abuse this command, otherwise you risk getting a warning.")
-            .addField("**<:YouTube:770834157244776458> YouTube Channel / Ютуб Канал**", "[YouTube](https://www.youtube.com/channel/UCH3I08n1RAz0AcOLZUJ5ujQ)")
+            .addField("**Русская Версия**", "[Все для модерации и администрации](https://app.gitbook.com/@biolog-n/s/bro-igrayut-pererozhdenie/vse-dlya-moderacii-i-administracii)\nВы успешно убрали статус «Пенсионера».\nПодробная информация о данной команде выше.")
+            .addField("**English Version**", "[Everything for moderation and administration](https://app.gitbook.com/@biolog-n/s/bro-igrayut-pererozhdenie/vse-dlya-moderacii-i-administracii)\nYou have successfully removed the status of \"Pensioner\".\nDetailed information about this command is above.")
+            .addField("**Социальные сети / Social network**", "<:01:774670675947421747> [YouTube](https://www.youtube.com/channel/UCH3I08n1RAz0AcOLZUJ5ujQ)\n<:03:774670676165918730> [VK](https://www.instagram.com/bro_rbx)\n<:02:774670676581548112> [Instagram](https://vk.com/bro_ytb)")
             .setFooter(`ID: ${message.guild.id} | BonMurBot ©️ 2020-2020 Все Права Съедены.`)
-            message.channel.send("**Неактивность / Inactive**", {embed: returnembed});
+            message.channel.send("**Пенсия / Pension**", {embed: returnembed});
             message.member.roles.remove('773537341099999304')
             message.member.roles.add('741074618177159189')
             data.inactive = false
@@ -42,11 +42,11 @@ module.exports = class extends Command {
                 const embed = new MessageEmbed()
                 .setTitle(`**Server: ${message.guild.name}**`)
                 .setColor('34B7EB')
-                .addField("**Русская Версия**", "[Все для модерации и администрации](https://app.gitbook.com/@biolog-n/s/bro-igrayut-pererozhdenie/vse-dlya-moderacii-i-administracii)\nВы успешно вышли с пенсии. Для более подробной информации о команде, перейдите по ссылке выше.\nПросьба не злоупотреблять этой командой, иначе вы рискуете получить предупреждение.")
-                .addField("**English Version**", "[Everything for moderation and administration](https://app.gitbook.com/@biolog-n/s/bro-igrayut-pererozhdenie/vse-dlya-moderacii-i-administracii)\nYou have successfully retired. For more information about the command, follow the link above.\nPlease do not abuse this command, otherwise you risk getting a warning.")
-                .addField("**<:YouTube:770834157244776458> YouTube Channel / Ютуб Канал**", "[YouTube](https://www.youtube.com/channel/UCH3I08n1RAz0AcOLZUJ5ujQ)")
+                .addField("**Русская Версия**", "[Все для модерации и администрации](https://app.gitbook.com/@biolog-n/s/bro-igrayut-pererozhdenie/vse-dlya-moderacii-i-administracii)\nВы успешно получили статус «Пенсионера».\nПодробная информация о данной команде выше.\n")
+                .addField("**English Version**", "[Everything for moderation and administration](https://app.gitbook.com/@biolog-n/s/bro-igrayut-pererozhdenie/vse-dlya-moderacii-i-administracii)\nYou have successfully obtained the status of \"Retired People\".\nDetailed information about this command is above.")
+                .addField("**Социальные сети / Social network**", "<:01:774670675947421747> [YouTube](https://www.youtube.com/channel/UCH3I08n1RAz0AcOLZUJ5ujQ)\n<:03:774670676165918730> [VK](https://www.instagram.com/bro_rbx)\n<:02:774670676581548112> [Instagram](https://vk.com/bro_ytb)")
                 .setFooter(`ID: ${message.guild.id} | BonMurBot ©️ 2020-2020 Все Права Съедены.`)
-                message.channel.send("**Неактивность / Inactive**", {embed: embed});
+                message.channel.send("**Пенсия / Pension **", {embed: embed});
             message.member.roles.add('773537341099999304')
             message.member.roles.remove('741074618177159189')
             data.inactive = true

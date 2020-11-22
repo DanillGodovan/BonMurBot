@@ -12,7 +12,6 @@ module.exports = class extends Event {
         .setDescription([
             `**❯ ID Сообщения:** ${message.id}`,
             `**❯ Канал:** ${message.channel}`,
-            `**❯ Автор:** ${message.member.displayName}`,
             `${attachments ? `**❯ Вложения:** ${attachments.join('\n')}` : ''}`
         ])
         if(message.content.length) {

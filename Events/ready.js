@@ -10,6 +10,7 @@ module.exports = class extends Event {
 	}
 
 	async run() {
+		let data = await User.updateMany({ tradeSent: true }, { tradeSent: false });
 		console.log([
 			`Logged in as ${this.client.user.tag}`,
 			`Loaded ${this.client.commands.size} commands!`,

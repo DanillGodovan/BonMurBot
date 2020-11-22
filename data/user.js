@@ -14,5 +14,6 @@ const schema = mongoose.Schema({
     tradeSent: { type: Boolean, default: false },
     inactive: { type: Boolean, default: false },
     pension: { type: Boolean, default: false },
+    messagePerDay: { type: Number, default: 0 }
 });
 module.exports = mongoose.model("User", schema)

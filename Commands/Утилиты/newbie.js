@@ -9,8 +9,8 @@ module.exports = class extends Command {
 
     constructor(...args) {
         super(...args, {
-            aliases: ['Неактив'],
-            description: 'Дает роль "временно не может выполнять обязанности".',
+            aliases: ['Новичок'],
+            description: 'Показывает информацию для новичков',
             category: 'Утилиты',
             usage: '[user]',
             guildOnly: true,
@@ -19,16 +19,20 @@ module.exports = class extends Command {
     }
 
     async run(message) {
-                const embed = new MessageEmbed()
+        if (message.channel.id !== '759168313342296154' && message.channel.id !== '770439146169958400' && message.channel.id !== '729781200159506512' && message.channel.id !== '777132691316932619') return;
+        else {
+            const embed = new MessageEmbed()
                 .setTitle(`**Server: ${message.guild.name}**`)
+                .setDescription('Для новичка / For the beginner')
                 .setColor('34B7EB')
-                .addField("**Русская Версия**", "Команды, которые разрешено использовать в чатах по общению: !newbie, !report, !suggest, w/l.\nКоманда, которая вам поможет побольше узнать о сервере: !help (разрешено писать только в <#703254582834364458>).\nЕсли на вас давят, оскорбляют и тому подобное, просьба написать администрации или подать жалобу командой \"!report <@ник> <жалоба>\".\nДля подачи идеи можно написать \"!suggest <идея>\".\nЮтуб канал BRO ИГРАЮТ находится ниже.")
-                .addField("**English Version**", "Commands that can be used in chat rooms: !newbie, !report, !suggest, w/l.\nThe command that will help you learn more about the server: !help (allowed to write only in <#703254582834364458>).\nIf you are under pressure, insulted, and so on, please write to the administration or file a complaint with the team \"!report <@nick> <complaint>\".\nTo submit an idea, you can write \"!suggest <idea>\".\nThe BRO ИГРАЮТ YouTube channel is located below.")
-                .addField("**<:YouTube:770834157244776458> YouTube Channel / Ютуб Канал**", "[YouTube](https://www.youtube.com/channel/UCH3I08n1RAz0AcOLZUJ5ujQ)")
+                .addField("**Информация & Новичок**", "Основные команды, использующиеся в чатах по общению: w/l, !report, !suggest.\nПросьба при нарушения подать жалобу командой !report <@пользователь> <жалоба>.\nПоявилась идея, подайте ее командой !suggest <идея>.\nДля создания Собственного Голосового Чата, зайдите в ГЧ Приват / Private.")
+                .addField("**Information & Beginner**", "The main commands used in chat rooms are: w/l, !report, !suggest.\nPlease submit a complaint with the !report <@user> <complaint>command.\nYou have an idea, submit it with the command !suggest <idea>.\nTo create Your own Voice Chat, go to VC Приват / Private.")
+                .addField("**Социальные сети / Social network**", "<:01:774670675947421747> [YouTube](https://www.youtube.com/channel/UCH3I08n1RAz0AcOLZUJ5ujQ)\n<:03:774670676165918730> [VK](https://www.instagram.com/bro_rbx)\n<:02:774670676581548112> [Instagram](https://vk.com/bro_ytb)")
                 .setFooter(`ID: ${message.guild.id} | BonMurBot ©️ 2020-2020 Все Права Съедены.`)
                 message.member.send("**Новичок / Newbie**", {embed: embed});
                 message.channel.send(`<@${message.author.id}>, Проверьте личные сообщения.`).then(msg => {
                     msg.delete({ timeout: 10000 })
                 })
+        }       
     }
    };

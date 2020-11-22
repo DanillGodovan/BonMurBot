@@ -16,7 +16,7 @@ module.exports = class extends Command {
     });
 }
 async run(message, args) {
-    if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("У вас не хватает прав на выполнение команды.");
+    if (!message.member.roles.cache.has('741074343723008040') && !message.member.hasPermission(["ADMINISTRATOR"])) return message.reply("Вы не имеете права использовать данную команду. При возникновении ошибки, просьба написать Главному Программисту.");
  
     if (!args[0]) return message.reply("Введите количество, которое вы хотите удалить");
  
