@@ -88,10 +88,11 @@ module.exports = class extends Command {
                                                 data.save()
                                                 message.guild.members.cache.get(RoleMember).send(`Вы получили **${data.points} / 100** очко за правильный выбор в идеях / You got **${data.points} / 100** point for correct choice in suggests.`)
                                                 if (data.points >= config.points) {
+                                                    message.guild.members.cache.get(RoleMember).send(`Вы получили **100/100** очко. Вы были **Повышены** / You received **100/100** point. You were Raised.`)
                                                     //   if(collected.first().users.cache.find(u => u.tag !== this.client.user.tag).roles.cache.has("741074618177159189")) {
-                                                    message.guild.members.cache.get(RoleMember).roles.add("741074343723008040")
-                                                    message.guild.members.cache.get(RoleMember).roles.remove("741074618177159189")
+                                                    message.guild.members.cache.get(RoleMember).roles.add("741074618177159189")
                                                     data.points = 0
+                                                    data.save()
                                                     // }
                                                 }
                                             })
@@ -119,6 +120,7 @@ module.exports = class extends Command {
                                                     message.guild.members.cache.get(RoleMember).roles.remove("741074343723008040")
                                                     message.guild.members.cache.get(RoleMember).roles.remove("741074618177159189")
                                                     data.warn = 0
+                                                    data.save()
                                                     // }
                                                 }
                                             })
@@ -173,10 +175,11 @@ module.exports = class extends Command {
                                                 data.save()
                                                 message.guild.members.cache.get(RoleCrossMember).send(`Вы получили **${data.points} / 100** очко за правильный выбор в идеях / You got **${data.points} / 100** point for correct choice in suggests.`)
                                                 if (data.points >= config.points) {
+                                                    message.guild.members.cache.get(RoleMember).send(`Вы получили **100/100** очко. Вы были **Повышены** / You received **100/100** point. You were Raised.`)
                                                     //   if(collected.first().users.cache.find(u => u.tag !== this.client.user.tag).roles.cache.has("741074618177159189")) {
-                                                    message.guild.members.cache.get(RoleCrossMember).roles.add("741074343723008040")
-                                                    message.guild.members.cache.get(RoleCrossMember).roles.remove("741074618177159189")
+                                                    message.guild.members.cache.get(RoleMember).roles.add("741074618177159189")
                                                     data.points = 0
+                                                    data.save()
                                                     // }
                                                 }
                                             })
@@ -204,6 +207,7 @@ module.exports = class extends Command {
                                                     message.guild.members.cache.get(RoleCrossMember).roles.remove("741074343723008040")
                                                     message.guild.members.cache.get(RoleCrossMember).roles.remove("741074618177159189")
                                                     data.warn = 0
+                                                    data.save()
                                                     // }
                                                 }
                                             })

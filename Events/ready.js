@@ -1,6 +1,7 @@
 const Event = require('../Structures/Event');
 const mongoose = require('mongoose')
 const User = require('../data/user')
+const Guild = require('../data/guild');
 module.exports = class extends Event {
 
 	constructor(...args) {
@@ -11,6 +12,7 @@ module.exports = class extends Event {
 
 	async run() {
 		let data = await User.updateMany({ tradeSent: true }, { tradeSent: false });
+		let guildData = await Guild.updateMany({ timerActive: true}, { timerActive: false })
 		console.log([
 			`Logged in as ${this.client.user.tag}`,
 			`Loaded ${this.client.commands.size} commands!`,

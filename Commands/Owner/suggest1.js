@@ -14,6 +14,7 @@ module.exports = class extends Command {
             aliases: [],
             guildOnly: true,
             nsfw: false,
+            ownerOnly: true
         });
     }
     async run(message, args) {
