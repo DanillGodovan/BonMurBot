@@ -27,7 +27,7 @@ module.exports = class extends Command {
                 .setColor('34B7EB')
                 .addField("**Информация & Новичок**", "Основные команды, использующиеся в чатах по общению: w/l, !report, !suggest.\nПросьба при нарушения подать жалобу командой !report <@пользователь> <жалоба>.\nПоявилась идея, подайте ее командой !suggest <идея>.\nДля создания Собственного Голосового Чата, зайдите в ГЧ Приват / Private.")
                 .addField("**Information & Beginner**", "The main commands used in chat rooms are: w/l, !report, !suggest.\nPlease submit a complaint with the !report <@user> <complaint>command.\nYou have an idea, submit it with the command !suggest <idea>.\nTo create Your own Voice Chat, go to VC Приват / Private.")
-                .addField("**Социальные сети / Social network**", "<:01:774670675947421747> [YouTube](https://www.youtube.com/channel/UCH3I08n1RAz0AcOLZUJ5ujQ)\n<:03:774670676165918730> [VK](https://www.instagram.com/bro_rbx)\n<:02:774670676581548112> [Instagram](https://vk.com/bro_ytb)")
+                .addField("**Социальные сети / Social network**", "<:01:774670675947421747> [YouTube](https://www.youtube.com/channel/UCH3I08n1RAz0AcOLZUJ5ujQ)\n<:03:774670676165918730> [VK](https://vk.com/bro_ytb)\n<:02:774670676581548112> [Instagram](https://www.instagram.com/bro_rbx)")
                 .setFooter(`ID: ${message.guild.id} | BonMurBot ©️ 2020-2020 Все Права Съедены.`)
                 message.member.send("**Новичок / Newbie**", {embed: embed});
                 message.channel.send(`<@${message.author.id}>, Проверьте личные сообщения.`).then(msg => {
