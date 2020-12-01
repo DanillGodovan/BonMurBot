@@ -19,6 +19,7 @@ module.exports = class extends Command {
     }
 
     async run(message) {
+        message.delete()
         let data = await User.findOne({ guildID: message.guild.id, userID: message.author.id });
             if (data.inactive === true) {
             if (message.member.roles.cache.has('773537341099999304')) {

@@ -15,8 +15,8 @@ module.exports = class extends Command {
             nsfw: false,
         });
     }
-    async run(message, args) {
-        if (message.channel.id !== '729781200159506512') return;
+    async run(message, args) {        
+        if (message.channel.id !== '729781200159506512' && message.channel.id !== '759168313342296154' && message.channel.id !== '770439146169958400' && message.channel.id !== '728950464204505158' && message.channel.id !== '770811977031090218') return;
         else {
             message.delete()
             let reason = args.slice(0).join(" ")
