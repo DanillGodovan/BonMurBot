@@ -19,7 +19,7 @@ module.exports = class extends Command {
 
     async run(message, args) {
         let context = args.slice(0).join(` `);
-        let tradechannel = message.guild.channels.cache.find((z) => z.id === "758759866633289728");
+        let tradechannel = message.guild.channels.cache.find((z) => z.id === "770822680059838515");
         let data = await User.findOne({
             guildID: message.guild.id,
             userID: message.author.id,

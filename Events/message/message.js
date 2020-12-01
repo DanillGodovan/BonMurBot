@@ -15,7 +15,7 @@ module.exports = class extends Event {
 
         if (message.content.match(swearRegex)) {
             message.delete()
-            message.channel.send(`Предупреждение о мате / Swear warning!`)
+            message.channel.send(`Предупреждение о мате / Swear warning!`).then(msg => msg.delete( {timeout: 10000 } ))
         }
         User.findOne({
             guildID: message.guild.id,
