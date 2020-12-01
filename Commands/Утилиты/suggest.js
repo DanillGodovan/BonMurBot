@@ -33,7 +33,7 @@ module.exports = class extends Command {
             message.channel.send("Идея успешно отправлена на проверку Модерации.\nSuggest was successfully submitted for Moderation review.").then(msg => msg.delete({
                 "timeout": 15000
             }))
-            sChannel.send(`**${message.author.tag}** has reported **${message.author.tag}** for **${reason}**.`).then(async msg => {
+            sChannel.send(`**${message.author.tag}** has suggested idea **${reason}**.`).then(async msg => {
                 await msg.react('✅');
                 await msg.react('❌');
                 msg.awaitReactions(filter, {
