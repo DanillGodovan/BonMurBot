@@ -52,7 +52,7 @@ module.exports = class extends Command {
                 return message.channel.send("Напишите свою форму трейда / Please send your trade list.");
             } else {
                 tradechannel.send(a);
-                message.channel.send(`Ваш **Trade Offer** успешно сохранен и отправлен в <#767040008740667412> / Your **Trade Offer** has been successfully saved and sent to <#767040008740667412>.`);
+                message.channel.send(`Ваш **Trade Offer** успешно сохранен и отправлен в <#770822680059838515> / Your **Trade Offer** has been successfully saved and sent to <#770822680059838515>.`);
                 data.tradeText = context;
                 data.tradeSent = true;
                 data.save();

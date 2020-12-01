@@ -23,23 +23,44 @@ module.exports = class extends Command {
             guildID: message.guild.id,
             userID: member.id
         }, (err, data) => {
-            const embed = new MessageEmbed()
+            if (data.lang === "RU") {
+                const embed = new MessageEmbed()
+                .setTitle(`**Server: ${message.guild.name}**`)
+                .setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 512 }))
+                .setDescription("Информация о Юзере")
+                .setColor('34B7EB')
+                .addField('**Информация & Основное**', [
+                        `Никнейм: ${member.user.tag}`,
+                        `ID: ${member.id}`,
+                        `Аватар: [Link to avatar](${member.user.displayAvatarURL({ dynamic: true })})`,
+                        `Создан: ${moment(member.user.createdTimestamp).format('RU')} ${moment(member.user.createdTimestamp).format('LL')} ${moment(member.user.createdTimestamp).fromNow()}`,
+                    ])
+                .addField('**Модерация & Логи**', [
+                        `Logs Очки: **${data.points} / 100** Повышение`,
+                        `Предупреждения: **${data.warn} / 7** Снятие & Понижение`,
+                    ])
+                .setFooter(`ID: ${message.guild.id} | BonMurBot ©️ 2020-2020 Все Права Съедены.`)
+                return message.channel.send("**Информация о Юзере**", {embed: embed});
+            } else if (data.verified === true && data.lang === "US") {
+                const embed = new MessageEmbed()
             .setTitle(`**Server: ${message.guild.name}**`)
             .setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 512 }))
-            .setDescription("User Information / Информация о Юзере")
+            .setDescription("User Information")
             .setColor('34B7EB')
-            .addField('**Информация & Основное / Information & Main**', [
-                    `Никнейм / Nickname: ${member.user.tag}`,
+            .addField('**Information & Main**', [
+                    `Nickname: ${member.user.tag}`,
                     `ID: ${member.id}`,
-                    `Аватар / Avatar: [Link to avatar](${member.user.displayAvatarURL({ dynamic: true })})`,
-                    `Создан / Created: ${moment(member.user.createdTimestamp).format('RU')} ${moment(member.user.createdTimestamp).format('LL')} ${moment(member.user.createdTimestamp).fromNow()}`,
+                    `Avatar: [Link to avatar](${member.user.displayAvatarURL({ dynamic: true })})`,
+                    `Created: ${moment(member.user.createdTimestamp).format('RU')} ${moment(member.user.createdTimestamp).format('LL')} ${moment(member.user.createdTimestamp).fromNow()}`,
                 ])
             .addField('**Модерация & Логи / Moderation & Logs**', [
-                    `Logs Очки / Points: **${data.points} / 100** Повышение / Increase`,
-                    `Предупреждения / Warnings: **${data.warn} / 7** Снятие & Понижение / Remove & Decrease`,
+                    `Logs Points: **${data.points} / 100** Increase`,
+                    `Warnings: **${data.warn} / 7** Remove & Decrease`,
                 ])
             .setFooter(`ID: ${message.guild.id} | BonMurBot ©️ 2020-2020 Все Права Съедены.`)
-            return message.channel.send("**User Information / Информация о Юзере**", {embed: embed});
+            return message.channel.send("**User Information**", {embed: embed});
+            }
+            
         })
     }
 
