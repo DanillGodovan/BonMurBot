@@ -21,8 +21,8 @@ module.exports = class extends Command {
     async run(message) {
         if (message.channel.id !== '759168313342296154' && message.channel.id !== '770439146169958400' && message.channel.id !== '729781200159506512' && message.channel.id !== '777132691316932619') return;
         else {
-            const embed = new MessageEmbed()
             message.delete()
+            const embed = new MessageEmbed()
                 .setTitle(`**Server: ${message.guild.name}**`)
                 .setDescription('Для новичка / For the beginner')
                 .setColor('34B7EB')
