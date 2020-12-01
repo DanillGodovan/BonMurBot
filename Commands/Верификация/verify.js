@@ -17,6 +17,7 @@ module.exports = class extends Command {
 }
 async run(message) {
     if (message.channel.id !== "703267200290652250") return;
+    message.delete()
     // Data
     let data = await User.findOne({ guildID: message.guild.id, userID: message.author.id });
     
