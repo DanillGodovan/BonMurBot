@@ -244,7 +244,6 @@ module.exports = class extends Command {
                     errors: ['time']
                 }).then(collected => {
                     const reaction = collected.first();
-                    if (emoji === undefined) return;
                     switch (reaction.emoji.name) {
                         case '❓':
                             reaction.message.delete()
