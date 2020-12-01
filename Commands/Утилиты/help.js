@@ -16,7 +16,6 @@ module.exports = class extends Command {
 	}
 
 	async run(message) {
-        message.delete()
 		const embed = new MessageEmbed()
         .setTitle(`**Server: ${message.guild.name}**`)
         .setColor('34B7EB')

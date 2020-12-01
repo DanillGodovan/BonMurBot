@@ -16,7 +16,7 @@ module.exports = class extends Event {
 
         if (message.content.match(swearRegex) || message.content.match(swearRegex2)) {
             message.delete()
-            message.channel.send(`Предупреждение о мате.`)
+            message.channel.send(`Предупреждение о мате / Swear warning!`)
         }
         User.findOne({
             guildID: message.guild.id,
@@ -64,6 +64,10 @@ module.exports = class extends Event {
         if(message.channel.id === '703254582834364458' || message.channel.id === '703267200290652250' || message.channel.id === '703280456732377089') {
             const filter = allprefixes.some(prefix => message.content.startsWith(prefix))
             if (filter === false) message.delete()
+        }
+
+        if(message.channel.id === '703267200290652250') {
+            if (!message.content.startsWith("!verify")) message.delete();
         }
 
         if (!message.content.startsWith(prefix)) return;
