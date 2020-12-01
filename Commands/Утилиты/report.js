@@ -246,7 +246,6 @@ module.exports = class extends Command {
                     const reaction = collected.first();
                     switch (reaction.emoji.name) {
                         case '❓':
-                            reaction.message.delete()
                             let RepEmbed = new Discord.MessageEmbed()
                                 .setColor('34B7EB')
                                 .setTitle(`**Жалоба на Участника / Participant Complaint**`)
