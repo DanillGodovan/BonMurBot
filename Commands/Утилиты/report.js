@@ -17,7 +17,7 @@ module.exports = class extends Command {
         });
     }
     async run(message, args) {
-        if (message.channel.id !== '729781200159506512' && message.channel.id !== '759168313342296154' && message.channel.id !== '770439146169958400' && message.channel.id !== '723945263072411668' && message.channel.id !== '770812055678746643') return;
+        if (message.channel.id !== '729781200159506512' && message.channel.id !== '759168313342296154' && message.channel.id !== '770439146169958400' && message.channel.id !== '723945263072411668' && message.channel.id !== '770812055678746643' && message.channel.id !== '703254582834364458') return;
         else {
             message.delete()
 
