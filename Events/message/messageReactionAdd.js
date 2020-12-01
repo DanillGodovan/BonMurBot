@@ -12,6 +12,9 @@ module.exports = class extends Event {
         if (reaction.emoji.name === '🇷🇺') {
             if (user.bot) return;
             if (!guildMember) return;
+            if (guildMember.roles.cache.has('770436608754581515')) {
+                guildMember.roles.remove('770436608754581515')
+            }
             guildMember.roles.add('748584003002695751')
             guildMember.roles.add('770436611539468298')
             data.lang = "RU"
@@ -19,6 +22,9 @@ module.exports = class extends Event {
         } else if (reaction.emoji.name === '🇺🇸') {
             if (user.bot) return;
             if (!guildMember) return;
+            if (guildMember.roles.cache.has('770436611539468298')) {
+                guildMember.roles.remove('770436611539468298')
+            }
             guildMember.roles.add('748584003002695751')
             guildMember.roles.add('770436608754581515')
             data.lang = "US"
