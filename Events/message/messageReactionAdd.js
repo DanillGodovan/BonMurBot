@@ -19,17 +19,11 @@ module.exports = class extends Event {
         if (reaction.emoji.name === '🇷🇺') {
             if (user.bot) return;
             if (!guildMember) return;
-            if (guildMember.roles.cache.has('770436608754581515')) {
-                guildMember.roles.remove('770436608754581515')
-            }
             data.lang = "RU"
             data.save()
         } else if (reaction.emoji.name === '🇺🇸') {
             if (user.bot) return;
             if (!guildMember) return;
-            if (guildMember.roles.cache.has('770436611539468298')) {
-                guildMember.roles.remove('770436611539468298')
-            }
             data.lang = "US"
             data.save()
         } else if (reaction.emoji.name === '📰') {
