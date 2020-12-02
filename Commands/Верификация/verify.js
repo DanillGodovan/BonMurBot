@@ -36,7 +36,7 @@ async run(message) {
         message.guild.members.cache.get(message.author.id).roles.add(role)
         message.guild.members.cache.get(message.author.id).roles.add(USrole)
     } else {
-        message.channel.send(":warning: Ошибка! Скорее всего Вы не выполнили то, что нужно для прохождения верификации.\nСоветуем Вам прочитать https://discordapp.com/channels/703044539287601153/703267200290652250/781802612746879037 данное сообщение!\nЕсли же Вы все выполнили правильно, но все равно не смогли пройти верификацию, то советуем Вам обратиться в поддержку <#783217199878766612>!\n:warning: Error! Most likely, You did not complete what you need to pass verification.\nWe advise you to read https://discordapp.com/channels/703044539287601153/703267200290652250/781802612746879037 this message!\nIf you did everything correctly, but still couldn't pass verification, we advise you to contact support <#783217199878766612>!").then(msg => msg.delete( {timeout: 15000} ))
+        message.channel.send(":warning: Ошибка! Просьба поставить реакцию, соответствующею вашему языку.\nError! Please put a reaction that matches your language.").then(msg => msg.delete( {timeout: 15000} ))
     }
       }
     }
