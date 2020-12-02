@@ -14,7 +14,7 @@ module.exports = class extends Command {
 	async run(message) {
         message.delete()
 		const embed = new MessageEmbed()
-        .setTitle(`**Верификация & Verification**`)
+        .setTitle(`**Правила & Rules**`)
         .setColor('34B7EB')
         .addField("**Важное / Обязательное**", "Правила находятся в этой [ссылке](https://app.gitbook.com/@biolog-n/s/bro-igrayut-pererozhdenie/).")
         .addField("**Important & Required**", "The rules are found in this [link](https://app.gitbook.com/@biolog-n/s/bro-igrayut-pererozhdenie/english/eng-rules).")
