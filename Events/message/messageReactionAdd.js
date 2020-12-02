@@ -9,6 +9,9 @@ module.exports = class extends Event {
         let data = await User.findOne({
             userID: guildMember.id
         })
+        if (reaction.emoji.name === '🇷🇺' && reaction.emoji.name === '🇺🇸') {
+        
+        }
         if (reaction.emoji.name === '🇷🇺') {
             if (user.bot) return;
             if (!guildMember) return;
