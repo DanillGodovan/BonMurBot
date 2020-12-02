@@ -10,7 +10,11 @@ module.exports = class extends Event {
             userID: guildMember.id
         })
         if (reaction.emoji.name === '🇷🇺' && reaction.emoji.name === '🇺🇸') {
-        
+            guildMember.send("Вы не можете выбрать два флага одновременно!")
+            const userReactions = reaction.users.cache.has(user.id)
+	        for (reaction of userReactions.values()) {
+		        await reaction.users.remove(user.id);
+	        }
         }
         if (reaction.emoji.name === '🇷🇺') {
             if (user.bot) return;
@@ -40,6 +44,9 @@ module.exports = class extends Event {
 
         } else if (reaction.emoji.name === '🎉') {
             guildMember.roles.add('774623878420234250')
+
+        } else if (reaction.emoji.name === '🍰') {
+            guildMember.roles.add('783654975712264222')
 
         }
     }
