@@ -27,7 +27,7 @@ module.exports = class extends Command {
 
             const filter = (reaction, user) => ['✅', '❌', '❓'].includes(reaction.emoji.name) && message.guild.members.cache.filter(x => x.roles.cache.has("741074618177159189")).map(x => x.id).includes(user.id)
             const adminFilter = (reaction, user) => ['✅', '❌'].includes(reaction.emoji.name) && message.guild.members.cache.filter(x => x.roles.cache.has("720873545537814529")).map(x => x.id).includes(user.id)
-            let sChannel = message.guild.channels.cache.find(x => x.name === "logs-complaints-ideas")
+            let sChannel = message.guild.channels.cache.find(x => x.name === "📂┋logs-complaints-ideas")
             let ruChannel = message.guild.channels.cache.find(x => x.id === "728950464204505158")
             let enChannel = message.guild.channels.cache.find(x => x.id === "770811977031090218")
             message.channel.send("Идея успешно отправлена на проверку Модерации.\nSuggest was successfully submitted for Moderation review.").then(msg => msg.delete({
