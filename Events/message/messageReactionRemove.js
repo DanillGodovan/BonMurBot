@@ -10,6 +10,9 @@ module.exports = class extends Event {
         } else if (reaction.emoji.name === '🎉') {
             guildMember.roles.remove('774623878420234250')
 
+        } else if (reaction.emoji.name === '🍰') {
+            guildMember.roles.remove('783654975712264222')
+
         }
     }
 }
