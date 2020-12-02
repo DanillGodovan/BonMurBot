@@ -22,8 +22,6 @@ module.exports = class extends Event {
             if (guildMember.roles.cache.has('770436608754581515')) {
                 guildMember.roles.remove('770436608754581515')
             }
-            guildMember.roles.add('748584003002695751')
-            guildMember.roles.add('770436611539468298')
             data.lang = "RU"
             data.save()
         } else if (reaction.emoji.name === '🇺🇸') {
@@ -32,8 +30,6 @@ module.exports = class extends Event {
             if (guildMember.roles.cache.has('770436611539468298')) {
                 guildMember.roles.remove('770436611539468298')
             }
-            guildMember.roles.add('748584003002695751')
-            guildMember.roles.add('770436608754581515')
             data.lang = "US"
             data.save()
         } else if (reaction.emoji.name === '📰') {

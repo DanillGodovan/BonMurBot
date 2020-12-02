@@ -4,7 +4,8 @@ module.exports = class BonClient extends Client {
 
 	constructor(options = {}) {
 		super({
-			disableMentions: 'everyone'
+			disableMentions: 'everyone',
+			partials: ['MESSAGE', 'CHANNEL', 'REACTION'] 
 		});
 		this.validate(options);
 

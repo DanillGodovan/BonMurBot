@@ -27,11 +27,11 @@ async run(message) {
     let USrole = message.guild.roles.cache.find(role => role.id === "770436608754581515");
     if (!role || !RUrole || !USrole) return message.channel.send('Произошла ошибка **"Данной роли нету"**, пожалуйста обратитесь к разработчику бота!').then(msg => msg.delete( {timeout: 15000} )) // Role Check
 
-    if (data.lang === "RU") { // If you RUS and 
+    if (data.verified === true && data.lang === "RU") { // If you RUS and 
         message.channel.send(`:white_check_mark: Вы успешно прошли верификацию! Приятного время-провождения!`).then(msg => msg.delete( {timeout: 15000} ))
         message.guild.members.cache.get(message.author.id).roles.add(role)
         message.guild.members.cache.get(message.author.id).roles.add(RUrole)
-    } else if (data.lang === "US") {
+    } else if (data.verified === true && data.lang === "US") {
         message.channel.send(`:white_check_mark: You have successfully passed verification! Enjoy your time!`).then(msg => msg.delete( {timeout: 15000} ))
         message.guild.members.cache.get(message.author.id).roles.add(role)
         message.guild.members.cache.get(message.author.id).roles.add(USrole)
