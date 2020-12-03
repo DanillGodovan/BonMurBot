@@ -22,7 +22,6 @@ module.exports = class extends Command {
         .setFooter(`ID: ${message.guild.id} | BonMurBot ©️ 2020-2020 Все Права Съедены.`)
         message.channel.send("**Важное / The Important**" ,{embed: embed}).then(async msg => {
             await msg.react('📰')
-            await msg.react('🎬')
             await msg.react('🎉')
             await msg.react('🍰')
         })
