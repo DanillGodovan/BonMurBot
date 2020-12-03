@@ -33,13 +33,13 @@ module.exports = class extends Command {
         member.send(`Вы получили **${data.warn} / 7** предупреждение по причине **${reason}**. Просьба быть впредь осторожнее.\nYou received **${data.warn} / 7 **warning for the reason **${reason}**. Please be more careful in the future.`)
         if(data.warn >= config.warn) {
             if(message.mentions.members.first().roles.cache.has('741074343723008040')) {
-                message.member.send(`Вы получили **7/7** предупреждение по причине **${reason}**. Вы были **Понижены** / You received **7/7** warning for the reason **${reason}**. You were Lowered.`)
+                mmember.send(`Вы получили **7/7** предупреждение по причине **${reason}**. Вы были **Понижены** / You received **7/7** warning for the reason **${reason}**. You were Lowered.`)
                 member.roles.remove('741074343723008040')
                 member.roles.add('741074618177159189')
                 data.warn = 0
                 data.save()
             } else if (message.mentions.members.first().roles.cache.has('741074618177159189')) {
-                message.member.send(`Вы получили **7/7** предупреждение по причине **${reason}**. Вы были **Сняты** / You received **7/7** warning for the reason **${reason}**. You were Lowered.`)
+                member.send(`Вы получили **7/7** предупреждение по причине **${reason}**. Вы были **Сняты** / You received **7/7** warning for the reason **${reason}**. You were Lowered.`)
                 member.roles.remove('741074618177159189')
                 data.warn = 0
                 data.save()
