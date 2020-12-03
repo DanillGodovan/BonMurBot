@@ -10,7 +10,11 @@ module.exports = class extends Event {
         }
 
         if (newMember.roles.cache.has('783327195330379786')) {
-            newMember.roles.add('783791385097666590')
+            newMember.roles.add('784007913692725278')
+        }
+        
+        if (!newMember.roles.cache.has('776934943438929981')) {
+            newMember.roles.remove('776934943438929981')
         }
     }
 }
