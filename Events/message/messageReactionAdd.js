@@ -39,8 +39,8 @@ module.exports = class extends Event {
             guildMember.roles.add('783654975712264222')
 
         } else if (reaction.emoji.name === '👌') {
-            guildMember.roles.remove('784013684136869908')
-            guildMember.roles.add('784013684136869908')
+            guildMember.roles.remove('784007913692725278')
+            guildMember.roles.add('783786495575457825')
 
         }
     }
