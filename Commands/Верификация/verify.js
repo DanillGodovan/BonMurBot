@@ -36,7 +36,7 @@ async run(message) {
         message.guild.members.cache.get(message.author.id).roles.add(role)
         message.guild.members.cache.get(message.author.id).roles.add(USrole)
     } else {
-        message.channel.send(":warning: Ошибка! Просьба поставить реакцию, соответствующею вашему языку.\nError! Please put a reaction that matches your language.").then(msg => msg.delete( {timeout: 15000} ))
+        message.channel.send(":warning: Ошибка! Просьба поставить реакцию :flag_ru: у сообщения чуть выше и написать команду \"!verify\" (без \"\") заново.\nВ случаи повторной неудачи обратитесь в <#783217199878766612>.\nError! Please put the reaction :flag_us: in the message a little higher and write the command \"!verify\" (without\"\") again.\nIn case of repeated failure, contact <#783217199878766612>.").then(msg => msg.delete( {timeout: 15000} ))
     }
       }
     }
