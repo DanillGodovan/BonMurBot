@@ -27,7 +27,7 @@ module.exports = class extends Command {
                 .setTitle(`**Server: ${message.guild.name}**`)
                 .setDescription('Для новичка')
                 .setColor('34B7EB')
-                .addField("**Информация & Новичок**", ":mouse_three_button: Для получения некоторых полезных ссылок, напишите в <#703254582834364458> команду \"!help\" (без \"\").\nКоманды, разрешенные в чатах общения: w/l, !report, !suggest (подробнее о данных командах здесь: https://clck.ru/SGJ9d).\nДля нахождения описания ролей, плюшек бустеров сервера, чатах и ролей по упоминания, перейдите в <#770823966612258879> и прочитайте всё.")
+                .addField("**Информация & Новичок**", ":mouse_three_button: Для получения некоторых полезных ссылок, напишите в <#703254582834364458> команду \"!help\" (без \"\").\nКоманды, разрешенные в чатах общения: w/l, !report, !suggest (подробнее о данных командах здесь: https://clck.ru/SGJ9d).\nДля нахождения описания ролей, плюшек бустеров сервера, чатах и ролей по упоминанию, перейдите в <#770823966612258879> и прочитайте всё.")
                 .addField("**Социальные сети**", "<:01:774670675947421747> [YouTube](https://www.youtube.com/channel/UCH3I08n1RAz0AcOLZUJ5ujQ)\n<:03:774670676165918730> [VK](https://vk.com/bro_ytb)\n<:02:774670676581548112> [Instagram](https://www.instagram.com/bro_rbx)")
                 .setFooter(`ID: ${message.guild.id} | BonMurBot ©️ 2020-2020 Все Права Съедены.`)
                 message.member.send("**Новичок / Newbie**", {embed: embed});
