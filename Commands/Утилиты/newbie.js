@@ -21,11 +21,7 @@ module.exports = class extends Command {
     async run(message) {
         if (message.channel.id !== '759168313342296154' && message.channel.id !== '770439146169958400' && message.channel.id !== '729781200159506512' && message.channel.id !== '777132691316932619' && message.channel.id !== '703254582834364458') return;
         else {
-            message.delete()
-            let data = User.findOne({
-                guildID: message.guild.id,
-                userID: message.member.id
-            })
+            let data = await User.findOne({ guildID: message.guild.id, userID: message.author.id });
             if (data.lang === "RU") {
             const embed = new MessageEmbed()
                 .setTitle(`**Server: ${message.guild.name}**`)
@@ -51,6 +47,7 @@ module.exports = class extends Command {
                     msg.delete({ timeout: 10000 })
                 })
             }
+            message.delete()
         }       
     }
    };
