@@ -33,9 +33,9 @@ module.exports = class extends Command {
                         message.channel.send("**Пенсия / Pension**", {embed: returnembed});
                         message.member.roles.remove('773537341099999304')
                         message.member.roles.add('741074618177159189')
-                        data.inactive = false
+                        data.pension = false
                         data.save()
-                } else if (data.lang == "US") {
+                } else if (data.lang === "US") {
                         const returnembed = new MessageEmbed()
                         .setTitle(`**Server: ${message.guild.name}**`)
                         .setColor('34B7EB')
@@ -45,8 +45,9 @@ module.exports = class extends Command {
                         message.channel.send("**Пенсия / Pension**", {embed: returnembed});
                         message.member.roles.remove('773537341099999304')
                         message.member.roles.add('741074618177159189')
-                        data.inactive = false
+                        data.pension = false
                 }
+
             } else {
                 return;
             }
@@ -63,7 +64,7 @@ module.exports = class extends Command {
                 message.channel.send("**Пенсия / Pension **", {embed: embed});
             message.member.roles.add('773537341099999304')
             message.member.roles.remove('741074618177159189')
-            data.inactive = true
+            data.pension = true
             data.save()
             } else if (data.lang === "US") {
                 const embed = new MessageEmbed()
@@ -75,7 +76,7 @@ module.exports = class extends Command {
                 message.channel.send("**Пенсия / Pension **", {embed: embed});
             message.member.roles.add('773537341099999304')
             message.member.roles.remove('741074618177159189')
-            data.inactive = true
+            data.pension = true
             data.save()
             }
         } else {
