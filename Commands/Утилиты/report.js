@@ -8,7 +8,6 @@ module.exports = class extends Command {
 
     constructor(...args) {
         super(...args, {
-            name: "report",
             description: "Отсылает жалобу на игрока!",
             category: "Информация",
             aliases: [],
@@ -19,7 +18,7 @@ module.exports = class extends Command {
     async run(message, args) {
         if (message.channel.id !== '729781200159506512' && message.channel.id !== '759168313342296154' && message.channel.id !== '770439146169958400' && message.channel.id !== '723945263072411668' && message.channel.id !== '770812055678746643' && message.channel.id !== '703254582834364458' && message.channel.id !== '703252739953786940' && message.channel.id !== '770439231331893258') return;
         else {
-            message.delete()
+            message.delete({ timeout: 2000 })
 
             let target = message.mentions.members.first() || message.guild.members.cache.get(args[0])
             if (!target) return message.channel.send("Пожалуйста, укажите пользователя.").then(msg => msg.delete({
@@ -35,19 +34,34 @@ module.exports = class extends Command {
             if (!reason) return message.channel.send(`Пожалуйста, укажите причину для жалобы на **${target.user.tag}**`).then(msg => msg.delete({
                 "timeout": 15000
             }));
-
-
+            if (message.attachments.size == 0) {
+                if (message.member.roles.cache.has('770436611539468298')) {
+                    return message.channel.send('Просьба прикрепить скриншот доказательств к жалобе.').then(msg => msg.delete({
+                        "timeout": 15000
+                    }));
+                } else {
+                    return message.channel.send('Please attach a screenshot of the evidence to the complaint.').then(msg => msg.delete({
+                        "timeout": 15000
+                    }));
+                }
+                
+            }
+            let attachedURL = message.attachments.first().url
+            console.log(attachedURL)
+            let reportEmbed = new Discord.MessageEmbed()
+                .setColor('34B7EB')
+                .setTitle(`**Жалоба ${message.author.tag}**`)
+                .setDescription(`Has reported **${target.user.tag}** for **${reason}**`)
+                .setImage(attachedURL);
             const filter = (reaction, user) => ['✅', '❌', '❓'].includes(reaction.emoji.name) && message.guild.members.cache.filter(x => x.roles.cache.has("741074618177159189")).map(x => x.id).includes(user.id)
             const adminFilter = (reaction, user) => ['✅', '❌'].includes(reaction.emoji.name) && message.guild.members.cache.filter(x => x.roles.cache.has("720873545537814529")).map(x => x.id).includes(user.id)
-            const filter1 = (reaction, user) => ['❓'].includes(reaction.emoji.name) && message.guild.members.cache.filter(x => x.roles.cache.has("741074618177159189")).map(x => x.id).includes(user.id)
             let sChannel = message.guild.channels.cache.find(x => x.name === "📂┋logs-complaints-ideas")
             let ruChannel = message.guild.channels.cache.find(x => x.id === "723945263072411668")
             let enChannel = message.guild.channels.cache.find(x => x.id === "770812055678746643")
-            let fetchedMsg;
             message.channel.send("Жалоба успешно отправлена на проверку Модерации. \nThe report was successfully submitted for Moderation review.").then(msg => msg.delete({
                 "timeout": 15000
             }))
-            sChannel.send(`**${message.author.tag}** has reported **${target.user.tag}** for **${reason}**.`).then(async msg => {
+            sChannel.send(reportEmbed).then(async msg => {
                 await msg.react('✅');
                 await msg.react('❌');
                 msg.awaitReactions(filter, {
@@ -59,13 +73,26 @@ module.exports = class extends Command {
 
                     switch (reaction.emoji.name) {
                         case '✅':
-                            let RepTickEmbed = new Discord.MessageEmbed()
+                            let RepTickEmbed;
+                            if (message.member.roles.cache.has('770436611539468298')) {
+                                RepTickEmbed = new Discord.MessageEmbed()
+                                    .setColor('34B7EB')
+                                    .setTitle(`**Жалоба на ${target.user.tag}**`)
+                                    .setDescription(reason)
+                                    .setImage(attachedURL)
+                                    .setFooter(`Модератор ${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag} Подтвердил.`, collected.first().users.cache.find(u => u.id !== this.client.user.id).displayAvatarURL({
+                                            dynamic: true
+                                        }))
+                            } else {
+                                RepTickEmbed = new Discord.MessageEmbed()
                                 .setColor('34B7EB')
-                                .setTitle(`**Жалоба на ${target.user.tag}**`)
+                                .setTitle(`**Report about ${target.user.tag}**`)
                                 .setDescription(reason)
-                                .setFooter(`${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag} Подтвердил / Accepted`, collected.first().users.cache.find(u => u.id !== this.client.user.id).displayAvatarURL({
-                                    dynamic: true
-                                }))
+                                .setImage(attachedURL)
+                                .setFooter(`Moderator ${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag} Accepted.`, collected.first().users.cache.find(u => u.id !== this.client.user.id).displayAvatarURL({
+                                             dynamic: true
+                                        }))
+                            }
                             let messag;
                             if (message.member.roles.cache.has('770436611539468298')) {
                                 messag = await ruChannel.send(RepTickEmbed)
@@ -74,7 +101,12 @@ module.exports = class extends Command {
                             }
                             let RoleMember = collected.first().users.cache.find(u => u.id !== this.client.user.id).id
                             let mChannel = message.guild.channels.cache.find(z => z.name === "📁┋logs-admin")
-                            mChannel.send(`**${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag}** responded positively to the report **${message.author.tag}** with reason **${reason}**.`).then(async msg => {
+                            let reportAdminEmbed = new Discord.MessageEmbed()
+                                .setColor('34B7EB')
+                                .setTitle(`**Жалоба ${target.user.tag}**`)
+                                .setDescription(`**${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag}** responded positively to the report **${message.author.tag}** with reason **${reason}**.`)
+                                .setImage(attachedURL);
+                            mChannel.send(reportAdminEmbed).then(async msg => {
                                 await msg.react("✅")
                                 await msg.react("❌")
                                 msg.awaitReactions(adminFilter, {
@@ -86,13 +118,26 @@ module.exports = class extends Command {
 
                                     switch (reaction.emoji.name) {
                                         case '✅':
-                                            let RepTickAdminEmbed = new Discord.MessageEmbed()
+                                            let RepTickAdminEmbed;
+                                            if (message.member.roles.cache.has('770436611539468298')) {
+                                                RepTickAdminEmbed = new Discord.MessageEmbed()
                                                 .setColor('34B7EB')
                                                 .setTitle(`**Жалоба на ${target.user.tag}**`)
                                                 .setDescription(reason)
-                                                .setFooter(`Администратор ${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag} Одобрил / Accepted`, collected.first().users.cache.find(u => u.id !== this.client.user.id).displayAvatarURL({
+                                                .setImage(attachedURL)
+                                                .setFooter(`Администратор ${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag} Принял.`, collected.first().users.cache.find(u => u.id !== this.client.user.id).displayAvatarURL({
                                                     dynamic: true
                                                 }))
+                                            } else {
+                                                RepTickAdminEmbed = new Discord.MessageEmbed()
+                                                .setColor('34B7EB')
+                                                .setTitle(`**Report about ${target.user.tag}**`)
+                                                .setDescription(reason)
+                                                .setImage(attachedURL)
+                                                .setFooter(`Administrator ${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag} Accepted.`, collected.first().users.cache.find(u => u.id !== this.client.user.id).displayAvatarURL({
+                                                    dynamic: true
+                                                }))
+                                            }
                                             messag.edit(RepTickAdminEmbed)
                                             User.findOne({
                                                 guildID: message.guild.id,
@@ -109,17 +154,30 @@ module.exports = class extends Command {
                                                     // }
                                                 }
                                             })
-                                            fetchedMsg.delete()
                                             reaction.message.delete()
                                             break;
                                         case '❌':
-                                            let RepTickCrossAdminEmbed = new Discord.MessageEmbed()
+                                            let RepTickCrossAdminEmbed;
+                                            if (message.member.roles.cache.has('770436611539468298')) {
+                                                RepTickCrossAdminEmbed = new Discord.MessageEmbed()
                                                 .setColor('34B7EB')
                                                 .setTitle(`**Жалоба на ${target.user.tag}**`)
                                                 .setDescription(reason)
-                                                .setFooter(`Администратор ${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag} Отклонил / Declined.`, collected.first().users.cache.find(u => u.id !== this.client.user.id).displayAvatarURL({
+                                                .setImage(attachedURL)
+                                                .setFooter(`Администратор ${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag} Отклонил.`, collected.first().users.cache.find(u => u.id !== this.client.user.id).displayAvatarURL({
                                                     dynamic: true
                                                 }))
+                                            } else {
+                                                RepTickCrossAdminEmbed = new Discord.MessageEmbed()
+                                                .setColor('34B7EB')
+                                                .setTitle(`**Report about ${target.user.tag}**`)
+                                                .setDescription(reason)
+                                                .setImage(attachedURL)
+                                                .setFooter(`Administrator ${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag} Declined.`, collected.first().users.cache.find(u => u.id !== this.client.user.id).displayAvatarURL({
+                                                    dynamic: true
+                                                }))
+                                            }
+
                                             messag.edit(RepTickCrossAdminEmbed)
                                             User.findOne({
                                                 guildID: message.guild.id,
@@ -142,17 +200,31 @@ module.exports = class extends Command {
                                     }
                                 });
                             });
-                            fetchedMsg.delete()
+                            
                             reaction.message.delete()
                             break;
                         case '❌':
-                            let RepCrossEmbed = new Discord.MessageEmbed()
-                                .setColor('34B7EB')
-                                .setTitle(`**Жалоба на ${target.user.tag}**`)
-                                .setDescription(reason)
-                                .setFooter(`${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag} Отклонил / Declined`, collected.first().users.cache.find(u => u.id !== this.client.user.id).displayAvatarURL({
-                                    dynamic: true
-                                }))
+                            let RepCrossEmbed;
+                                if (message.member.roles.cache.has('770436611539468298')) {
+                                    RepTickCrossAdminEmbed = new Discord.MessageEmbed()
+                                        .setColor('34B7EB')
+                                        .setTitle(`**Жалоба на ${target.user.tag}**`)
+                                        .setDescription(reason)
+                                        .setImage(attachedURL)
+                                        .setFooter(`Модератор ${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag} Отклонил.`, collected.first().users.cache.find(u => u.id !== this.client.user.id).displayAvatarURL({
+                                                dynamic: true
+                                            }))
+                                } else {
+                                    RepCrossEmbed = new Discord.MessageEmbed()
+                                    .setColor('34B7EB')
+                                    .setTitle(`**Report about ${target.user.tag}**`)
+                                    .setDescription(reason)
+                                    .setImage(attachedURL)
+                                    .setFooter(`Moderator ${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag} Declined.`, collected.first().users.cache.find(u => u.id !== this.client.user.id).displayAvatarURL({
+                                                 dynamic: true
+                                            }))
+                                }
+
                             let mesag;
                             if (message.member.roles.cache.has('770436611539468298')) {
                                 mesag = await ruChannel.send(RepCrossEmbed)
@@ -161,7 +233,12 @@ module.exports = class extends Command {
                             }
                             let RoleCrossMember = collected.first().users.cache.find(u => u.id !== this.client.user.id).id
                             let aChannel = message.guild.channels.cache.find(z => z.name === "📁┋logs-admin")
-                            aChannel.send(`**${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag}** Ответил отрицательно на жалобу **${message.author.tag}** с причиной **${reason}**.`).then(async msg => {
+                            let reportCrossAdminEmbed = new Discord.MessageEmbed()
+                                .setColor('34B7EB')
+                                .setTitle(`**Жалоба на ${target.user.tag}**`)
+                                .setDescription(`**${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag}** responded negatively to the report **${message.author.tag}** with reason **${reason}**.`)
+                                .setImage(attachedURL);
+                            aChannel.send(reportCrossAdminEmbed).then(async msg => {
                                 await msg.react("✅")
                                 await msg.react("❌")
                                 msg.awaitReactions(adminFilter, {
@@ -173,13 +250,26 @@ module.exports = class extends Command {
 
                                     switch (reaction.emoji.name) {
                                         case '✅':
-                                            let RepTickAdminEmbed = new Discord.MessageEmbed()
+                                            let RepTickAdminEmbed;
+                                            if (message.member.roles.cache.has('770436611539468298')) {
+                                                RepTickCrossAdminEmbed = new Discord.MessageEmbed()
                                                 .setColor('34B7EB')
                                                 .setTitle(`**Жалоба на ${target.user.tag}**`)
                                                 .setDescription(reason)
-                                                .setFooter(`Администратор ${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag} Отклонил / Declined`, collected.first().users.cache.find(u => u.id !== this.client.user.id).displayAvatarURL({
+                                                .setImage(attachedURL)
+                                                .setFooter(`Администратор ${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag} Отклонил.`, collected.first().users.cache.find(u => u.id !== this.client.user.id).displayAvatarURL({
                                                     dynamic: true
                                                 }))
+                                            } else {
+                                                RepTickCrossAdminEmbed = new Discord.MessageEmbed()
+                                                .setColor('34B7EB')
+                                                .setTitle(`**Report about ${target.user.tag}**`)
+                                                .setDescription(reason)
+                                                .setImage(attachedURL)
+                                                .setFooter(`Administrator ${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag} Declined.`, collected.first().users.cache.find(u => u.id !== this.client.user.id).displayAvatarURL({
+                                                    dynamic: true
+                                                }))
+                                            }
                                             mesag.edit(RepTickAdminEmbed)
                                             User.findOne({
                                                 guildID: message.guild.id,
@@ -199,13 +289,26 @@ module.exports = class extends Command {
                                             reaction.message.delete()
                                             break;
                                         case '❌':
-                                            let RepTickCrossAdminEmbed = new Discord.MessageEmbed()
+                                            let RepTickCrossAdminEmbed;
+                                            if (message.member.roles.cache.has('770436611539468298')) {
+                                                RepTickCrossAdminEmbed = new Discord.MessageEmbed()
                                                 .setColor('34B7EB')
                                                 .setTitle(`**Жалоба на ${target.user.tag}**`)
                                                 .setDescription(reason)
-                                                .setFooter(`Администратор ${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag} Принял / Accepted`, collected.first().users.cache.find(u => u.id !== this.client.user.id).displayAvatarURL({
+                                                .setImage(attachedURL)
+                                                .setFooter(`Администратор ${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag} Принял.`, collected.first().users.cache.find(u => u.id !== this.client.user.id).displayAvatarURL({
                                                     dynamic: true
                                                 }))
+                                            } else {
+                                                RepTickCrossAdminEmbed = new Discord.MessageEmbed()
+                                                .setColor('34B7EB')
+                                                .setTitle(`**Report about ${target.user.tag}**`)
+                                                .setDescription(reason)
+                                                .setImage(attachedURL)
+                                                .setFooter(`Administrator ${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag} Accepted.`, collected.first().users.cache.find(u => u.id !== this.client.user.id).displayAvatarURL({
+                                                    dynamic: true
+                                                }))
+                                            }
                                             mesag.edit(RepTickCrossAdminEmbed)
                                             User.findOne({
                                                 guildID: message.guild.id,
@@ -235,28 +338,6 @@ module.exports = class extends Command {
 
                 });
             });
-            sChannel.send(`Попросить доказательства нарушения на жалобу пользователя **${message.member.user.tag}**?`).then(async msg => {
-                fetchedMsg = msg
-                msg.react("❓")
-                msg.awaitReactions(filter1, {
-                    max: 1,
-                    time: 86400000,
-                    errors: ['time']
-                }).then(collected => {
-                    const reaction = collected.first();
-                    switch (reaction.emoji.name) {
-                        case '❓':
-                            let RepEmbed = new Discord.MessageEmbed()
-                                .setColor('34B7EB')
-                                .setTitle(`**Жалоба на Участника / Participant Complaint**`)
-                                .addField("**Русская Версия**", `[Правила](https://app.gitbook.com/@biolog-n/s/bro-igrayut-pererozhdenie/)\nПросьба предъявить доказательства модератору **${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag}** по поводу **${reason}**.\nP.S. За игнорирование просьбы модератора в течении дня, Вы рискуете получить наказание.`)
-                                .addField("**English Version**", `[Rules](https://app.gitbook.com/@biolog-n/s/bro-igrayut-pererozhdenie/)\nPlease provide evidence to the moderator **${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag}** about **${reason}**.\nP.S. for ignoring the moderator's request during the day, You risk getting punished.`)
-                                .setFooter(`ID: ${message.guild.id} | BonMurBot ©️ 2020-2020 Все Права Съедены.`)
-                            message.member.send(RepEmbed)
-                            break;
-                    }
-                })
-            })
         }
     }
 }
