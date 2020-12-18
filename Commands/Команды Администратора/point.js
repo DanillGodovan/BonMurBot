@@ -34,7 +34,7 @@ module.exports = class extends Command {
         if(data.points >= config.points) {
             if (message.mentions.members.first().roles.cache.has('741074618177159189')) {
                 member.send(`Вы получили **100/100** очко по причине **${reason}**. Вы были **Повышены** / You received **100/100** point for the reason **${reason}**. You were Raised.`)
-                member.roles.add('7410743437230080409')
+                member.roles.add('741074343723008040')
                 data.points = 0
                 data.save()
             }
