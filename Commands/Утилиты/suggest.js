@@ -107,23 +107,6 @@ module.exports = class extends Command {
                                                     dynamic: true
                                                 }))
                                             messag.edit(RepTickCrossAdminEmbed)
-                                            User.findOne({
-                                                guildID: message.guild.id,
-                                                userID: RoleMember
-                                            }, (err, data) => {
-                                                data.warn += 1
-                                                data.save()
-                                                message.guild.members.cache.get(RoleMember).send(`Вы получили **${data.warn} / 7** предупреждение за неправильный выбор в идеях / You are got **${data.warn} / 7** warning for wrong choice in ideas.`)
-                                                if (data.warn >= config.warn) {
-                                                    message.guild.members.cache.get(RoleMember).send(`Вы получили **7/7** предупреждение. Вы были **Сняты** / You received **7/7** warning. You were Lowered.`)
-                                                    //   if(collected.first().users.cache.find(u => u.tag !== this.client.user.tag).roles.cache.has("741074618177159189")) {
-                                                    message.guild.members.cache.get(RoleMember).roles.remove("741074343723008040")
-                                                    message.guild.members.cache.get(RoleMember).roles.remove("741074618177159189")
-                                                    data.warn = 0
-                                                    data.save()
-                                                    // }
-                                                }
-                                            })
                                             reaction.message.delete()
                                             break;
                                     }
@@ -194,23 +177,6 @@ module.exports = class extends Command {
                                                     dynamic: true
                                                 }))
                                             mesag.edit(RepTickCrossAdminEmbed)
-                                            User.findOne({
-                                                guildID: message.guild.id,
-                                                userID: RoleCrossMember
-                                            }, (err, data) => {
-                                                data.warn += 1
-                                                data.save()
-                                                message.guild.members.cache.get(RoleCrossMember).send(`Вы получили **${data.warn} / 7** предупреждение за неправильный выбор в идеях / You are got **${data.warn} / 7** warning for wrong choice in ideas.`)
-                                                if (data.warn >= config.warn) {
-                                                    message.guild.members.cache.get(RoleMember).send(`Вы получили **7/7** предупреждение. Вы были **Сняты** / You received **7/7** warning. You were Lowered.`)
-                                                    //   if(collected.first().users.cache.find(u => u.tag !== this.client.user.tag).roles.cache.has("741074618177159189")) {
-                                                    message.guild.members.cache.get(RoleCrossMember).roles.remove("741074343723008040")
-                                                    message.guild.members.cache.get(RoleCrossMember).roles.remove("741074618177159189")
-                                                    data.warn = 0
-                                                    data.save()
-                                                    // }
-                                                }
-                                            })
                                             reaction.message.delete()
                                             break;
                                     }

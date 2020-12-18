@@ -31,7 +31,7 @@ module.exports = class extends Command {
         data.points += 1;
         data.save()
         member.send(`Вы получили **${data.points} / 100** очко по причине **${reason}**. Удачи в новых свершениях в будующем.\nYou received **${data.points} / 100 **point for the reason **${reason}**. Good luck with new achievments in future.`)
-        if(data.warn >= config.warn) {
+        if(data.points >= config.points) {
             if (message.mentions.members.first().roles.cache.has('741074618177159189')) {
                 member.send(`Вы получили **100/100** очко по причине **${reason}**. Вы были **Повышены** / You received **100/100** point for the reason **${reason}**. You were Raised.`)
                 member.roles.add('7410743437230080409')
