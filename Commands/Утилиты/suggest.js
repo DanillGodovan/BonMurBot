@@ -59,7 +59,7 @@ module.exports = class extends Command {
                                 messag = await enChannel.send(RepTickEmbed)
                             }
                             let RoleMember = collected.first().users.cache.find(u => u.id !== this.client.user.id).id
-                            let mChannel = message.guild.channels.cache.find(z => z.name === "📁┋logs-admin")
+                            let mChannel = message.guild.channels.cache.find(z => z.name === "📁┋logs-moderators")
                             mChannel.send(`**${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag}** He reacted positively to the idea **${message.author.tag}** with suggest **${reason}**.`).then(async msg => {
                                 await msg.react("✅")
                                 await msg.react("❌")
@@ -129,7 +129,7 @@ module.exports = class extends Command {
                                 mesag = await enChannel.send(RepCrossEmbed)
                             }
                             let RoleCrossMember = collected.first().users.cache.find(u => u.id !== this.client.user.id).id
-                            let aChannel = message.guild.channels.cache.find(z => z.name === "📁┋logs-admin")
+                            let aChannel = message.guild.channels.cache.find(z => z.name === "📁┋logs-moderators")
                             aChannel.send(`**${collected.first().users.cache.find(u => u.tag !== this.client.user.tag).tag}** has reacted negatively to the idea **${message.author.tag}** with idea **${reason}**.`).then(async msg => {
                                 await msg.react("✅")
                                 await msg.react("❌")
