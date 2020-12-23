@@ -24,12 +24,18 @@ module.exports = class extends Command {
             guildID: message.guild.id,
             userID: message.author.id,
         });
+        let color;
+        if(message.member.roles.cache.has('783327195330379786') || message.member.roles.cache.has('784059313576083456')) {
+            color = "FFC001"
+        } else {
+            color = "1AC6FF"
+        }
         let a = new Discord.MessageEmbed()
             .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({
                 dynamic: true
             }))
             .setDescription(`${context}\n\n\n**DM <@${message.author.id}>**`)
-            .setColor("1AC6FF")
+            .setColor(color)
             .setFooter(`${message.guild.name}`, message.guild.iconURL({
                 dynamic: true
             }));
