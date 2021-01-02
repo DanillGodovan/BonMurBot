@@ -5,7 +5,7 @@ module.exports = class extends Command {
 
 	constructor(...args) {
 		super(...args, {
-			aliases: ['helptestme'],
+			aliases: ['хелп2'],
 			description: 'Показывает все команды у бота',
 			category: 'Утилиты',
 			usage: '[command]',
