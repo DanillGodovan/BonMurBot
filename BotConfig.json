@@ -1,6 +1,6 @@
 {
-    "dataURL": "OK CODE",
-    "token": "NO",
+    "dataURL": "mongodb+srv://Bonkinan:d1tvpjYrARdiAOk7@godovanium.8tvqz.mongodb.net/BonMurBot+DB?retryWrites=true&w=majority",
+    "token": "NzI5Njc1NTQ3MzAyNTU5ODM4.XwMZTw.03BAdxhryviTuopHCuLD433OizE",
     "prefix": "!",
     "owners": ["331387785821028353", "303159931396292609"],
     "warn": "7",
