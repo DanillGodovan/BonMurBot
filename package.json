@@ -19,6 +19,7 @@
     "fs": "0.0.1-security",
     "glob": "^7.1.6",
     "google-play-scraper": "^8.0.2",
+    "ini": "^2.0.0",
     "moment": "^2.29.1",
     "mongoose": "^5.11.9",
     "ms": "^2.1.3",
