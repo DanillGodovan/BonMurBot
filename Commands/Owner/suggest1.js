@@ -10,7 +10,7 @@ module.exports = class extends Command {
         super(...args, {
             name: "suggest1",
             description: "Отсылает жалобу на игрока!",
-            category: "Информация",
+            category: "Owner",
             aliases: [],
             guildOnly: true,
             nsfw: false,

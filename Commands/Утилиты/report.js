@@ -9,7 +9,7 @@ module.exports = class extends Command {
     constructor(...args) {
         super(...args, {
             description: "Отсылает жалобу на игрока!",
-            category: "Информация",
+            category: "Утилиты",
             aliases: ["жалоба"],
             guildOnly: true,
             nsfw: false,
