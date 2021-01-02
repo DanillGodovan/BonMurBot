@@ -10,7 +10,7 @@ module.exports = class extends Command {
         super(...args, {
             description: "Отсылает идею пользователя!",
             category: "Утилиты",
-            aliases: [],
+            aliases: ['предложить'],
             guildOnly: true,
             nsfw: false,
         });

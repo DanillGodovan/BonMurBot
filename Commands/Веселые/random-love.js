@@ -7,7 +7,7 @@ const config = require('../../BotConfig.json')
 module.exports = class extends Command {
     constructor(...args) {
         super(...args, {
-            aliases: ["любовь"],
+            aliases: ["случайная-любовь"],
             description: "Случайная любовь",
             category: "Веселые",
             guildOnly: true,

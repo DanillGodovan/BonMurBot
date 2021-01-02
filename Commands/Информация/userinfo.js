@@ -22,7 +22,7 @@ module.exports = class extends Command {
 
 	constructor(...args) {
 		super(...args, {
-			aliases: ['user', 'ui'],
+			aliases: ['user', 'ui', 'юзер'],
 			description: 'Показывает всю информацию о пользователе или о указанном пользователе.',
 			category: 'Информация',
 			usage: '[user]',

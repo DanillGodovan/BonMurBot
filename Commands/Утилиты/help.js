@@ -5,7 +5,7 @@ const { prefix } = require('../../BotConfig.json')
 module.exports = class extends Command {
 	constructor(...args) {
 		super(...args, {
-			aliases: ['halp'],
+			aliases: ['хелп', 'помощь'],
 			description: 'Показывает все команды у бота',
 			category: 'Утилиты',
 			usage: '[command]',

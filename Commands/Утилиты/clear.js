@@ -10,7 +10,7 @@ module.exports = class extends Command {
             name: "clear",
             description: "Удаляет указанное кол-во сообщений",
             category: "Утилиты",
-            aliases: ["Очистить", "deletemessage"],
+            aliases: ["очистить", "deletemessage"],
             guildOnly: true,
 			nsfw: false,
     });

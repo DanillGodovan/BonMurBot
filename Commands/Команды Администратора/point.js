@@ -7,7 +7,7 @@ const config = require('../../BotConfig.json')
 module.exports = class extends Command {
     constructor(...args) {
         super(...args, {
-            aliases: ["пред"],
+            aliases: ["очко"],
             description: "Выполняют функцию выдачи очков модератора",
             category: "Команды Администратора",
             guildOnly: true,

@@ -9,7 +9,7 @@ module.exports = class extends Command {
 
     constructor(...args) {
         super(...args, {
-            aliases: ['Неактив'],
+            aliases: ['Пенсия'],
             description: 'Дает роль "временно не может выполнять обязанности".',
             category: 'Утилиты',
             usage: '[user]',

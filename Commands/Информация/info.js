@@ -8,7 +8,7 @@ module.exports = class extends Command {
 
     constructor(...args) {
         super(...args, {
-            aliases: ['modinfo'],
+            aliases: ['инфо'],
             description: 'Показывает всю информацию о модераторе или о указанном модераторе.',
             category: 'Информация',
             usage: '[user]',
