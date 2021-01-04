@@ -1,8 +1,8 @@
 # BonMurBot
-[![license](http://img.shields.io/badge/license-GNU-blue.svg)](https://github.com/DanillGodovan/BonMurBot/blob/master/LICENSE)
-[![build](https://github.com/Blackhawk-TA/dynoBot/workflows/Node.js%20CI/badge.svg?branch=master)](https://github.com/DanillGodovan/BonMurBot/actions)
+[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m780010966-3242e97a2ffbe3e33ef10eb4.svg)](https://status.bonmurbot.ga)
+[![Uptime Robot ratio](https://img.shields.io/uptimerobot/ratio/m780010966-3242e97a2ffbe3e33ef10eb4.svg)](https://status.bonmurbot.ga)
+[![GPL Licence](https://badges.frapsoft.com/os/gpl/gpl.svg?v=103)](LICENSE)
 [![github](https://img.shields.io/github/release/DanillGodovan/BonMurBot.svg?color=brightgreen)](https://github.com/DanillGodovan/BonMurBot/releases)
-[![github](https://img.shields.io/github/package-json/v/DanillGodovan/BonMurBot.svg?color=brightgreen)](https://github.com/DanillGodovan/BonMurBot/tree/master)
 
 ## What is BonMurBot?
 **BonMurBot** - a multifunctional bot for the **Discord** platform with many useful and only the most necessary features. In the near future it is planned to remake the bot for many servers.
