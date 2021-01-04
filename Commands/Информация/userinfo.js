@@ -1,6 +1,8 @@
 const Command = require('../../Structures/Command');
 const { MessageEmbed } = require('discord.js');
 const moment = require('moment');
+const User = require('../../data/user.js');
+const mongoose = require('mongoose')
 
 const flags = {
 	DISCORD_EMPLOYEE: 'Discord Employee',
@@ -22,7 +24,7 @@ module.exports = class extends Command {
 
 	constructor(...args) {
 		super(...args, {
-			aliases: ['user', 'ui', 'юзер'],
+			aliases: ['user', 'ui', 'юзер', 'участник'],
 			description: 'Показывает всю информацию о пользователе или о указанном пользователе.',
 			category: 'Информация',
 			usage: '[user]',
@@ -39,6 +41,11 @@ module.exports = class extends Command {
 			.map(role => role.toString())
 			.slice(0, -1);
 		const userFlags = member.user.flags.toArray();
+		User.findOne({
+            guildID: message.guild.id,
+            userID: member.id
+        }, (err, data) => {
+            if (data.lang === "RU") {
 		const embed = new MessageEmbed()
 			.setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 512 }))
 			.setColor(member.displayHexColor || 'RED')
@@ -60,6 +67,30 @@ module.exports = class extends Command {
 				`**❯ Роли. [${roles.length}]:** ${roles.length < 10 ? roles.join(', ') : roles.length > 10 ? this.client.utils.trimArray(roles) : 'Нету.'}`,
 				`\u200b`
 			]);
+		} else if (data.lang == "US") {
+			const embed = new MessageEmbed()
+			.setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 512 }))
+			.setColor(member.displayHexColor || 'RED')
+			.addField('User', [
+				`**❯ Nickname:** ${member.user.username}`,
+				`**❯ Discriminator:** ${member.user.discriminator}`,
+				`**❯ ID:** ${member.id}`,
+				`**❯ Flags:** ${userFlags.length ? userFlags.map(flag => flags[flag]).join(', ') : 'None'}`,
+				`**❯ Avatar:** [Link to avatar](${member.user.displayAvatarURL({ dynamic: true })})`,
+				`**❯ Created:** ${moment(member.user.createdTimestamp).format('LT')} ${moment(member.user.createdTimestamp).format('LL')} ${moment(member.user.createdTimestamp).fromNow()}`,
+				`**❯ Status:** ${member.user.presence.status}`,
+				`**❯ Playing:** ${member.user.presence.game || 'Не играет в игру.'}`,
+				`\u200b`
+			])
+			.addField('Member', [
+				`**❯ The highest role:** ${member.roles.highest.id === message.guild.id ? 'None.' : member.roles.highest.name}`,
+				`**❯ Date of server join:** ${moment(member.joinedAt).format('LL LTS')}`,
+				`**❯ Hoist Role:** ${member.roles.hoist ? member.roles.hoist.name : 'None.'}`,
+				`**❯ Roles. [${roles.length}]:** ${roles.length < 10 ? roles.join(', ') : roles.length > 10 ? this.client.utils.trimArray(roles) : 'None.'}`,
+				`\u200b`
+			]);
+		}
+	})
 		return message.channel.send(embed);
 	}
 
