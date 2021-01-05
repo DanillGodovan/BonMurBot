@@ -7,7 +7,7 @@
 ## What is BonMurBot?
 **BonMurBot** - a multifunctional bot for the **Discord** platform with many useful and only the most necessary features. In the near future it is planned to remake the bot for many servers.
 
-### Bot Features
+## Bot Features
 
 ⚙ General functionality: Support for English, Russian and the ability to auto-change the bot language for the selected roles.
 
@@ -30,13 +30,15 @@
 ## Built with
 
 [Discord.js](https://discord.js.org/#/) - Library with which the bot was developed.
+
 [Mongoose](https://mongoosejs.com) - The framework we use with mongoDB
+
 [Express.js](expressjs.com) - The web framework which built our site
 
 
 End with an example of getting some data out of the system or using it for a little demo
 
-##Installing
+## Installing
 Installing packages:
 ```
 $ npm i
