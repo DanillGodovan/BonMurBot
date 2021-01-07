@@ -1,6 +1,6 @@
 # BonMurBot
-[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m780010966-3242e97a2ffbe3e33ef10eb4.svg)](https://stats.bonmurbot.ga)
-[![Uptime Robot ratio](https://img.shields.io/uptimerobot/ratio/m780010966-3242e97a2ffbe3e33ef10eb4.svg)](https://stats.bonmurbot.ga)
+[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m786831396-cc6ea171257a66b6094fbad8.svg)](https://stats.bonmurbot.ga)
+[![Uptime Robot ratio](https://img.shields.io/uptimerobot/ratio/m786831396-cc6ea171257a66b6094fbad8.svg)](https://stats.bonmurbot.ga)
 [![GPL Licence](https://badges.frapsoft.com/os/gpl/gpl.svg?v=103)](LICENSE)
 [![github](https://img.shields.io/github/release/DanillGodovan/BonMurBot.svg?color=brightgreen)](https://github.com/DanillGodovan/BonMurBot/releases)
 
