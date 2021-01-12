@@ -1,13 +1,13 @@
 # BonMurBot
-[![license](http://img.shields.io/badge/license-GNU-blue.svg)](https://github.com/DanillGodovan/BonMurBot/blob/master/LICENSE)
-[![build](https://github.com/Blackhawk-TA/dynoBot/workflows/Node.js%20CI/badge.svg?branch=master)](https://github.com/DanillGodovan/BonMurBot/actions)
+[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m786831396-cc6ea171257a66b6094fbad8.svg)](https://stats.bonmurbot.ga)
+[![Uptime Robot ratio](https://img.shields.io/uptimerobot/ratio/m786831396-cc6ea171257a66b6094fbad8.svg)](https://stats.bonmurbot.ga)
+[![GPL Licence](https://badges.frapsoft.com/os/gpl/gpl.svg?v=103)](LICENSE)
 [![github](https://img.shields.io/github/release/DanillGodovan/BonMurBot.svg?color=brightgreen)](https://github.com/DanillGodovan/BonMurBot/releases)
-[![github](https://img.shields.io/github/package-json/v/DanillGodovan/BonMurBot.svg?color=brightgreen)](https://github.com/DanillGodovan/BonMurBot/tree/master)
 
 ## What is BonMurBot?
 **BonMurBot** - a multifunctional bot for the **Discord** platform with many useful and only the most necessary features. In the near future it is planned to remake the bot for many servers.
 
-### Bot Features
+## Bot Features
 
 ⚙ General functionality: Support for English, Russian and the ability to auto-change the bot language for the selected roles.
 
@@ -30,13 +30,12 @@
 ## Built with
 
 [Discord.js](https://discord.js.org/#/) - Library with which the bot was developed.
+
 [Mongoose](https://mongoosejs.com) - The framework we use with mongoDB
+
 [Express.js](expressjs.com) - The web framework which built our site
 
-
-End with an example of getting some data out of the system or using it for a little demo
-
-##Installing
+## Installing
 Installing packages:
 ```
 $ npm i
