@@ -46,6 +46,7 @@ module.exports = class extends Command {
                         message.member.roles.remove('773537341099999304')
                         message.member.roles.add('741074618177159189')
                         data.pension = false
+                        data.save()
                 }
 
             } else {
