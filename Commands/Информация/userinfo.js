@@ -67,6 +67,7 @@ module.exports = class extends Command {
 				`**❯ Роли. [${roles.length}]:** ${roles.length < 10 ? roles.join(', ') : roles.length > 10 ? this.client.utils.trimArray(roles) : 'Нету.'}`,
 				`\u200b`
 			]);
+			return message.channel.send(embed);
 		} else if (data.lang == "US") {
 			const embed = new MessageEmbed()
 			.setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 512 }))
@@ -89,9 +90,9 @@ module.exports = class extends Command {
 				`**❯ Roles. [${roles.length}]:** ${roles.length < 10 ? roles.join(', ') : roles.length > 10 ? this.client.utils.trimArray(roles) : 'None.'}`,
 				`\u200b`
 			]);
+			return message.channel.send(embed);
 		}
 	})
-		return message.channel.send(embed);
 	}
 
 };
